@@ -2368,6 +2368,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 18999168286567499, guid: 71bc156b2c138314ca53212b34022489,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 492683513}
+    - target: {fileID: 18999168286567499, guid: 71bc156b2c138314ca53212b34022489,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnClickRestart
+      objectReference: {fileID: 0}
     - target: {fileID: 246482182698907599, guid: 71bc156b2c138314ca53212b34022489,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -2390,6 +2400,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 437057561620514230, guid: 71bc156b2c138314ca53212b34022489,
         type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 437057561620514230, guid: 71bc156b2c138314ca53212b34022489,
+        type: 3}
       propertyPath: _pauseMenu
       value: 
       objectReference: {fileID: 30581277}
@@ -2405,23 +2420,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3242082412350448185, guid: 71bc156b2c138314ca53212b34022489,
         type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3242082412350448185, guid: 71bc156b2c138314ca53212b34022489,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3242082412350448185, guid: 71bc156b2c138314ca53212b34022489,
-        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 582497061}
+      objectReference: {fileID: 492683513}
     - target: {fileID: 3242082412350448185, guid: 71bc156b2c138314ca53212b34022489,
         type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnClickResumeGame
       objectReference: {fileID: 0}
     - target: {fileID: 4094201129677194467, guid: 71bc156b2c138314ca53212b34022489,
         type: 3}
@@ -2453,6 +2458,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5380080449044031869, guid: 71bc156b2c138314ca53212b34022489,
+        type: 3}
+      propertyPath: _pauseMenu
+      value: 
+      objectReference: {fileID: 30581277}
     - target: {fileID: 5531549692697719665, guid: 71bc156b2c138314ca53212b34022489,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -2473,11 +2483,31 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -197.635
       objectReference: {fileID: 0}
+    - target: {fileID: 5778602151705194325, guid: 71bc156b2c138314ca53212b34022489,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 492683513}
+    - target: {fileID: 5778602151705194325, guid: 71bc156b2c138314ca53212b34022489,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnClickExit
+      objectReference: {fileID: 0}
+    - target: {fileID: 7852371858683248611, guid: 71bc156b2c138314ca53212b34022489,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7852371858683248611, guid: 71bc156b2c138314ca53212b34022489,
         type: 3}
       propertyPath: _pauseMenu
       value: 
       objectReference: {fileID: 30581277}
+    - target: {fileID: 7881116663784787563, guid: 71bc156b2c138314ca53212b34022489,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7881116663784787563, guid: 71bc156b2c138314ca53212b34022489,
         type: 3}
       propertyPath: _pauseMenu
@@ -2553,7 +2583,8 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -352.365
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -6067,15 +6098,9 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!4 &563875479 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6176343519752091565, guid: 19f81ecf8aa2c4f88a9628cd41082bc2,
-    type: 3}
-  m_PrefabInstance: {fileID: 1938271402}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &582497061 stripped
+--- !u!114 &492683513 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7881116663784787563, guid: 71bc156b2c138314ca53212b34022489,
+  m_CorrespondingSourceObject: {fileID: 3536439764470958638, guid: 71bc156b2c138314ca53212b34022489,
     type: 3}
   m_PrefabInstance: {fileID: 229595340}
   m_PrefabAsset: {fileID: 0}
@@ -6085,6 +6110,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22cbbf2316ccb3e458bbb461ce6bc0d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &563875479 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6176343519752091565, guid: 19f81ecf8aa2c4f88a9628cd41082bc2,
+    type: 3}
+  m_PrefabInstance: {fileID: 1938271402}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &584113664
 Mesh:
   m_ObjectHideFlags: 0
@@ -20950,7 +20981,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2072727182}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Level
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21477,10 +21508,6 @@ SceneRoots:
   - {fileID: 1732019295}
   - {fileID: 1716372789}
   - {fileID: 1477598006}
-  - {fileID: 845146162}
-  - {fileID: 1129785199}
-  - {fileID: 69959028}
-  - {fileID: 229595340}
   - {fileID: 1938271402}
   - {fileID: 1280309024}
   - {fileID: 8939515904389522092}
@@ -21488,3 +21515,7 @@ SceneRoots:
   - {fileID: 1867432979}
   - {fileID: 1255793921}
   - {fileID: 434721841}
+  - {fileID: 845146162}
+  - {fileID: 1129785199}
+  - {fileID: 69959028}
+  - {fileID: 229595340}

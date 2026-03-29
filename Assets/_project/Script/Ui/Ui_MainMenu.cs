@@ -2,10 +2,9 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class NewBehaviourScript : MonoBehaviour
+public class Ui_MainMenu : MonoBehaviour
 {
-    [SerializeField] private GameObject _newGameButton;
-    [SerializeField] private GameObject _exitButton;
+    [SerializeField] private GameObject _mainMenu;
 
     public void OnClickNewGame()
     {
