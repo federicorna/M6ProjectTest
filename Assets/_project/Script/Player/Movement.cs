@@ -4,17 +4,14 @@ public class Movement : MonoBehaviour
 {
 
     [SerializeField] private float _moveSpeed = 5;
-    [SerializeField] private float _rotationSpeed = 120;
+    [SerializeField] private float _mouseSensitivity = 2f;
     [SerializeField] private float _jumpHeight = 2;
-
-    //[SerializeField] private float _jumpForce = 5;
 
     private Rigidbody _rb;
     private GroundChecker _groundChecker;
 
-    //private Vector3 _direction;
-
-    private float v, h;
+    private float _v, _h;
+    private float _mouseX;
     private bool _isJumping;
 
 
@@ -26,8 +23,10 @@ public class Movement : MonoBehaviour
 
     void Update()
     {
-        h = Input.GetAxisRaw("Horizontal");
-        v = Input.GetAxisRaw("Vertical");
+        _h = Input.GetAxisRaw("Horizontal");
+        _v = Input.GetAxisRaw("Vertical");
+
+        _mouseX += Input.GetAxis("Mouse X") * _mouseSensitivity;
 
         _isJumping = Input.GetButtonDown("Jump");
 
@@ -39,16 +38,18 @@ public class Movement : MonoBehaviour
 
     void FixedUpdate()
     {
-        Quaternion deltaRot = Quaternion.Euler (Vector3.up * h * (_rotationSpeed * Time.deltaTime));
+        Quaternion playerRotation = Quaternion.Euler (0, _mouseX, 0);
+        _rb.MoveRotation (playerRotation);
 
-        _rb.MovePosition (_rb.position + transform.forward * v * (_moveSpeed * Time.deltaTime));
-        _rb.MoveRotation (_rb.rotation * deltaRot);
+        Vector3 moveDir = (transform.forward * _v) + (transform.right * _h);
+
+        Vector3 targetPosition = _rb.position + moveDir.normalized * (_moveSpeed * Time.fixedDeltaTime);
+        _rb.MovePosition (targetPosition);
 
     }
 
     private void Jump()
     {
-        //_rb.AddForce (Vector3.up * _jumpForce, ForceMode.Impulse);
         _rb.AddForce (Vector3.up * Mathf.Sqrt (_jumpHeight * -2f * Physics.gravity.y), ForceMode.VelocityChange);
         _isJumping = false;
     }
