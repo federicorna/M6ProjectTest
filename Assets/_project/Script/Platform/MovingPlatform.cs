@@ -31,9 +31,7 @@ public class MovingPlatform : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Debug.Log("Player salito sulla piattaforma!");
-            Vector3 originalScale = other.transform.localScale;
             other.transform.SetParent(this.transform);
-            other.transform.localScale = originalScale;
         }
     }
 
