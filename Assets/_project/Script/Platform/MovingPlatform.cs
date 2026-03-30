@@ -9,10 +9,12 @@ public class MovingPlatform : MonoBehaviour
 
     private Vector3 _target;
 
+
     void Start()
     {
         _target = _pointB.position;
     }
+
 
     void FixedUpdate()
     {
@@ -21,6 +23,25 @@ public class MovingPlatform : MonoBehaviour
         if (Vector3.Distance(transform.position, _target) < 0.1f)
         {
             _target = _target == _pointA.position ? _pointB.position : _pointA.position;
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            Debug.Log("Player salito sulla piattaforma!");
+            Vector3 originalScale = other.transform.localScale;
+            other.transform.SetParent(this.transform);
+            other.transform.localScale = originalScale;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            other.transform.SetParent(null);
         }
     }
 }
